@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="anexos">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/sri-estilos.css">
+    <script src="js/vue.js" type="application/javascript"></script>
+    <script src="js/sri-logica-anexos.js" type="application/javascript"></script>
+    <script src="js/sri-logica-formularios.js" type="application/javascript"></script>
+
+    <div id="sri-anexos">
+        <div class="container">
+            <div class="row sri-margen-contenedor">
+                <div class="col-sm-4" v-for="anexo in anexos">
+                    <div class="text-center">
+                        <img class="img-fluid sri-imagen-anexos" v-bind:src="anexo.urlImagen" alt="imagen prueba">
+                        <h2>{{anexo.nombre}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sri-formularios">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6" v-for="formulario in formularios">
+                    <div class="text-left">
+                        <h2>{{formulario.nombre}}</h2>
+                        <ul class="text-left" v-if="formulario.items">
+                            <li v-for="itemsNivelDos in formulario.items">
+                                {{itemsNivelDos.nombre}}
+                                <ul v-if="itemsNivelDos.items">
+                                    <li v-for="itemsNivelTres in itemsNivelDos.items">
+                                        {{itemsNivelTres.nombre}}
+                                        <ul v-if="itemsNivelTres.items">
+                                            <li v-for="itemsNivelCuatro in itemsNivelTres.items">
+                                                {{itemsNivelCuatro.nombre}}
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+</body>
+</html>
